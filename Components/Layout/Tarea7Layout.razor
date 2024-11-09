@@ -1,0 +1,35 @@
+@inherits LayoutComponentBase
+
+<div class="page">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Aplicación</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <NavLink href="mantenimiento" class="nav-link text-center">Mantenimiento</NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink href="calendario" class="nav-link text-center">Calendario</NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink href="mapa" class="nav-link text-center">Mapa</NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink href="acerca" class="nav-link text-center">Acerca de</NavLink>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <div class="container">
+        @Body
+    </div>
+</div>
