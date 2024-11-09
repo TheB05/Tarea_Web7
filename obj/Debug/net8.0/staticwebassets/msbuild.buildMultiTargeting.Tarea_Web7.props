@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Tarea_Web7.props" />
+</Project>
