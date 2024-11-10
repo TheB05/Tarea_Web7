@@ -69,3 +69,7 @@ build_metadata.AdditionalFiles.CssScope = b-6l5ik84h7d
 [C:/Web/Tarea_Web7/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-y6pnc0gfh4
+
+[C:/Web/Tarea_Web7/Components/Propios/Calendar.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9waW9zXENhbGVuZGFyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-dx8ydu175e

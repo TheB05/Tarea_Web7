@@ -1,0 +1,57 @@
+@code {
+    [Parameter]
+    public List<Detencion> Detenciones { get; set; } = new List<Detencion>();
+
+    private DateTime currentMonth = DateTime.Now;
+    private int daysInMonth;
+    private DateTime firstDayOfMonth;
+
+    protected override void OnInitialized()
+    {
+        SetMonthData();
+    }
+
+    private void SetMonthData()
+    {
+        firstDayOfMonth = new DateTime(currentMonth.Year, currentMonth.Month, 1);
+        daysInMonth = DateTime.DaysInMonth(currentMonth.Year, currentMonth.Month);
+    }
+
+    private void PreviousMonth()
+    {
+        currentMonth = currentMonth.AddMonths(-1);
+        SetMonthData();
+    }
+
+    private void NextMonth()
+    {
+        currentMonth = currentMonth.AddMonths(1);
+        SetMonthData();
+    }
+
+    private int GetDetentionCountByDay(int day)
+    {
+        return Detenciones
+            .Count(d => d.FechaDetencion.Year == currentMonth.Year &&
+                       d.FechaDetencion.Month == currentMonth.Month &&
+                       d.FechaDetencion.Day == day);
+    }
+}
+
+<div class="calendar">
+    <div class="calendar-header">
+        <button class="btn btn-outline-primary" @onclick="PreviousMonth">Anterior</button>
+        <span class="mx-3">@currentMonth.ToString("MMMM yyyy")</span>
+        <button class="btn btn-outline-primary" @onclick="NextMonth">Siguiente</button>
+    </div>
+
+    <div class="calendar-grid">
+        @for (int day = 1; day <= daysInMonth; day++)
+        {
+            <div class="calendar-cell">
+                <span class="day-number">@day</span>
+                <span class="detention-count">@GetDetentionCountByDay(day) detenciones</span>
+            </div>
+        }
+    </div>
+</div>

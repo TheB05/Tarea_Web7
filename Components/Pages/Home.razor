@@ -6,8 +6,9 @@
 
 <PageTitle>Mantenimiento</PageTitle>
 
-<h1>Mantenimiento de detenciones.</h1>
-
+<center>
+    <h1>Mantenimiento de detenciones.</h1>
+</center>
 
 @if(modo == Modo.Lista){
 
@@ -27,6 +28,9 @@
                     <td>@Detencion.FechaDetencion</td>
                     <td>@Detencion.Nombre @Detencion.Apellido</td>
                     <td>@Detencion.Coordenadas()</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick = "()=> EditarDetencion(detencion)">Editar</button>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -58,6 +62,12 @@
     </div>
 
     <div class="form-group">
+        <label for="Apellido">Apellido</label>
+        <InputText id="Apellido" @bind-Value="@detencion.Apellido" class="form-control" />
+        <ValidationMessage For="@(() => detencion.Apellido)" />
+    </div>
+
+    <div class="form-group">
         <label for="Pasaporte">Pasaporte</label>
         <InputText id="Pasaporte" @bind-Value="@detencion.Pasaporte" class="form-control" />
         <ValidationMessage For="@(() => detencion.Pasaporte)" />
@@ -67,12 +77,6 @@
         <label for="FechaNacimiento">Fecha de nacimiento</label>
         <InputDate id="FechaNacimiento" @bind-Value="@detencion.FechaNacimiento" class="form-control" />
         <ValidationMessage For="@(() => detencion.FechaNacimiento)" />
-    </div>
-
-    <div class="form-group">
-        <label for="Apellido">Apellido</label>
-        <InputText id="Apellido" @bind-Value="@detencion.Apellido" class="form-control" />
-        <ValidationMessage For="@(() => detencion.Apellido)" />
     </div>
 
     <div class="form-group">
@@ -120,10 +124,22 @@
 
             var index = detenciones.FindIndex(d => d.Id == detencion.Id);
             detenciones[index] = detencion;
-            
+
         }else{
             db.Detenciones.Add(detencion);
             db.SaveChanges();
         }
+        modo = Modo.Lista;
+        StateHasChanged();
+    }
+
+    void EditarDetencion(Detencion detencion){
+        this.detencion = detencion;
+        modo = Modo.Editar;
+    }
+
+    protected override void OnInitialized(){
+
+        detenciones = db.Detenciones.ToList();
     }
 }

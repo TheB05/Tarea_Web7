@@ -131,3 +131,4 @@ C:\Web\Tarea_Web7\obj\Debug\net8.0\Tarea_Web7.pdb
 C:\Web\Tarea_Web7\obj\Debug\net8.0\Tarea_Web7.genruntimeconfig.cache
 C:\Web\Tarea_Web7\obj\Debug\net8.0\ref\Tarea_Web7.dll
 C:\Web\Tarea_Web7\obj\Debug\net8.0\Tarea_Web7.sourcelink.json
+C:\Web\Tarea_Web7\obj\Debug\net8.0\scopedcss\Components\Propios\Calendar.razor.rz.scp.css
