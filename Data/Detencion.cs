@@ -8,4 +8,8 @@ public class Detencion
     public DateTime? FechaNacimiento { get; set; }
     public double Latitud { get; set; } = 0;
     public double Longitud { get; set; } = 0;
+    public string Coordenadas()
+    {
+        return $"{Latitud}, {Longitud}";
+    }
 }

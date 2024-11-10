@@ -1,6 +1,129 @@
 ﻿@page "/"
 @page "/mantenimiento"
+@rendermode InteractiveServer
+@inject AppDbContext db
+@using System.ComponentModel.DataAnnotations
 
 <PageTitle>Mantenimiento</PageTitle>
 
 <h1>Mantenimiento de detenciones.</h1>
+
+
+@if(modo == Modo.Lista){
+
+    <h3>Listado de detenciones.</h3>
+
+    <table class="table table-hovered">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Nombre</th>
+                <th>Coordenadas</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var Detencion in detenciones){
+                <tr>
+                    <td>@Detencion.FechaDetencion</td>
+                    <td>@Detencion.Nombre @Detencion.Apellido</td>
+                    <td>@Detencion.Coordenadas()</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+    
+    <div class="text-end">
+        <center>
+            <button class="btn btn-primary" @onclick = "()=>modo = Modo.Editar">Agregar</button>
+        </center>
+    </div>
+
+}else if(modo == Modo.Editar){
+    <EditForm Model="@detencion" OnValidSubmit="GuardarDetencion">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="FechaDetencion">Fecha de detención</label>
+        <InputDate id="FechaDetencion" @bind-Value="@detencion.FechaDetencion" class="form-control" />
+        <ValidationMessage For="@(() => detencion.FechaDetencion)" />
+    </div>
+
+    <div class="form-group">
+        <label for="Nombre">Nombre</label>
+        <InputText id="Nombre" @bind-Value="@detencion.Nombre" class="form-control" />
+        <ValidationMessage For="@(() => detencion.Nombre)" />
+    </div>
+
+    <div class="form-group">
+        <label for="Pasaporte">Pasaporte</label>
+        <InputText id="Pasaporte" @bind-Value="@detencion.Pasaporte" class="form-control" />
+        <ValidationMessage For="@(() => detencion.Pasaporte)" />
+    </div>
+
+    <div class="form-group">
+        <label for="FechaNacimiento">Fecha de nacimiento</label>
+        <InputDate id="FechaNacimiento" @bind-Value="@detencion.FechaNacimiento" class="form-control" />
+        <ValidationMessage For="@(() => detencion.FechaNacimiento)" />
+    </div>
+
+    <div class="form-group">
+        <label for="Apellido">Apellido</label>
+        <InputText id="Apellido" @bind-Value="@detencion.Apellido" class="form-control" />
+        <ValidationMessage For="@(() => detencion.Apellido)" />
+    </div>
+
+    <div class="form-group">
+        <label for="Latitud">Latitud</label>
+        <InputNumber id="Apellido" @bind-Value="@detencion.Latitud" class="form-control" />
+        <ValidationMessage For="@(() => detencion.Latitud)" />
+    </div>
+
+
+    <div class="form-group">
+        <label for="Longitud">Longitud</label>
+        <InputNumber id="Apellido" @bind-Value="@detencion.Longitud" class="form-control" />
+        <ValidationMessage For="@(() => detencion.Longitud)" />
+    </div>
+
+<br>
+    <div>
+        <center>
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </center>
+    </div>
+    </EditForm>
+}
+
+@code{
+
+    enum Modo{
+
+        Lista,
+        Editar,
+    }
+
+    Modo modo = Modo.Lista;
+
+    List<Detencion> detenciones = new List<Detencion>();
+
+    Detencion detencion = new Detencion();
+
+    void GuardarDetencion(){
+
+        if(detencion.Id > 0){
+
+            db.Detenciones.Update(detencion);
+            db.SaveChanges();
+
+            var index = detenciones.FindIndex(d => d.Id == detencion.Id);
+            detenciones[index] = detencion;
+            
+        }else{
+            db.Detenciones.Add(detencion);
+            db.SaveChanges();
+        }
+    }
+}

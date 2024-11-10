@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tarea_Web7")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fee4d82f4ce923eaf9ac72233bbbcf57c21fd435")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+558869f97e47f30d6a7b2b9932aca0d92f3383c2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tarea_Web7")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tarea_Web7")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
