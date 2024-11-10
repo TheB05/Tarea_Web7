@@ -219,12 +219,24 @@ main[b-6l5ik84h7d] {
     gap: 10px;
 }
 
+.weekday-header[b-dx8ydu175e] {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+}
+
 .calendar-cell[b-dx8ydu175e] {
     border: 1px solid #ddd;
     padding: 10px;
     min-height: 80px;
     display: flex;
     flex-direction: column;
+}
+
+.empty-cell[b-dx8ydu175e] {
+    background-color: #f8f9fa;
 }
 
 .day-number[b-dx8ydu175e] {
@@ -235,4 +247,20 @@ main[b-6l5ik84h7d] {
 .detention-count[b-dx8ydu175e] {
     font-size: 0.9em;
     color: #666;
+}
+
+@media (max-width: 768px) {
+    .weekday-header[b-dx8ydu175e] {
+        font-size: 0.8em;
+        padding: 5px;
+    }
+
+    .calendar-cell[b-dx8ydu175e] {
+        min-height: 60px;
+        padding: 5px;
+    }
+
+    .detention-count[b-dx8ydu175e] {
+        font-size: 0.8em;
+    }
 }

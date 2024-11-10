@@ -15,12 +15,24 @@
     gap: 10px;
 }
 
+.weekday-header {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+}
+
 .calendar-cell {
     border: 1px solid #ddd;
     padding: 10px;
     min-height: 80px;
     display: flex;
     flex-direction: column;
+}
+
+.empty-cell {
+    background-color: #f8f9fa;
 }
 
 .day-number {
@@ -31,4 +43,20 @@
 .detention-count {
     font-size: 0.9em;
     color: #666;
+}
+
+@media (max-width: 768px) {
+    .weekday-header {
+        font-size: 0.8em;
+        padding: 5px;
+    }
+
+    .calendar-cell {
+        min-height: 60px;
+        padding: 5px;
+    }
+
+    .detention-count {
+        font-size: 0.8em;
+    }
 }

@@ -1,3 +1,5 @@
+@rendermode InteractiveServer
+
 @code {
     [Parameter]
     public List<Detencion> Detenciones { get; set; } = new List<Detencion>();
@@ -5,6 +7,7 @@
     private DateTime currentMonth = DateTime.Now;
     private int daysInMonth;
     private DateTime firstDayOfMonth;
+    private readonly string[] diasSemana = { "Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado" };
 
     protected override void OnInitialized()
     {
@@ -46,6 +49,20 @@
     </div>
 
     <div class="calendar-grid">
+        @foreach (var dia in diasSemana)
+        {
+            <div class="weekday-header">@dia</div>
+        }
+
+        @{
+            var primerDia = (int)firstDayOfMonth.DayOfWeek;
+        }
+
+        @for (int i = 0; i < primerDia; i++)
+        {
+            <div class="calendar-cell empty-cell"></div>
+        }
+
         @for (int day = 1; day <= daysInMonth; day++)
         {
             <div class="calendar-cell">

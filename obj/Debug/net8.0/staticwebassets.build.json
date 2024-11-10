@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/4wKggHVCnZ14hxzoBLVwu721HRQinyCj3HDpIxeVWg=",
+  "Hash": "iatsLuiy9uj5CAh6UaXXpngq3ETifZmkYwdD0HYZnwI=",
   "Source": "Tarea_Web7",
   "BasePath": "_content/Tarea_Web7",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Web\\Tarea_Web7\\wwwroot\\images\\Mifoto.jpeg",
+      "SourceId": "Tarea_Web7",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Web\\Tarea_Web7\\wwwroot\\",
+      "BasePath": "_content/Tarea_Web7",
+      "RelativePath": "images/Mifoto.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Mifoto.jpeg"
     }
   ]
 }
