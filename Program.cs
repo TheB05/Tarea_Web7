@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Tarea_Web7.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddDbContext<AppDbContext>();
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite("Data Source=detenciones.db"));
 
 var app = builder.Build();
 

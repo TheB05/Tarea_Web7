@@ -4,10 +4,8 @@ public class AppDbContext : DbContext
 {
     public DbSet<Detencion> Detenciones { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public AppDbContext(DbContextOptions<AppDbContext> options)
+        : base(options)
     {
-        optionsBuilder.UseSqlite("Data Source=detenciones.db");
-
-        Database.EnsureCreated();
     }
 }
