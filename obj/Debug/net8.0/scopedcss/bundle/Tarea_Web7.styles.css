@@ -202,3 +202,37 @@ main[b-6l5ik84h7d] {
     }
 }
 /* _content/Tarea_Web7/Components/Propios/Calendar.razor.rz.scp.css */
+.calendar[b-dx8ydu175e] {
+    margin: 20px;
+}
+
+.calendar-header[b-dx8ydu175e] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-grid[b-dx8ydu175e] {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.calendar-cell[b-dx8ydu175e] {
+    border: 1px solid #ddd;
+    padding: 10px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+.day-number[b-dx8ydu175e] {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.detention-count[b-dx8ydu175e] {
+    font-size: 0.9em;
+    color: #666;
+}
