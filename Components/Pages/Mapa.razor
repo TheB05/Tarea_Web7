@@ -1,4 +1,17 @@
 @page "/mapa"
+@inject AppDbContext db
+@using Microsoft.EntityFrameworkCore
 @rendermode InteractiveServer
 
-<AsgMap />
+<AsgMap Detenciones= "Detenciones" />
+
+@code{
+    
+    [Parameter]
+    public List<Detencion> Detenciones { get; set; } = new List<Detencion>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Detenciones = await db.Detenciones.ToListAsync();
+    }
+}
